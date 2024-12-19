@@ -1,6 +1,6 @@
 /* 
 author: Pranav
-Prob : Two-Sets
+Prob : Permuations
 Lang: C++
 */
 
@@ -11,13 +11,34 @@ typedef long long ll;
 signed main(){
 	ll n;
 	cin >> n;
-	int cal = (n * (n + 1)) / 2;
-	if(cal % 2 != 0){
-		cout << "NO" << endl;
+	if(n == 1){
+		cout << 1 << endl;
 		return 0;
-	}else{
-		
+	}
+	if(n < 4){
+		cout << "NO SOLUTION";
+		return 0;
+	};
 
+
+	stack<ll> stEven;
+	stack<ll> stOdd;
+	for(int j = 1;j <= n; ++j){
+		if(j % 2 == 0){
+			stEven.push(j);
+		}else{
+			stOdd.push(j);
+		}
+	}
+
+	while(!stOdd.empty()){
+		cout << stOdd.top() << " ";
+		stOdd.pop();
+	}
+
+	while(!stEven.empty()){
+		cout << stEven.top() << " ";
+		stEven.pop();
 	}
 
 
