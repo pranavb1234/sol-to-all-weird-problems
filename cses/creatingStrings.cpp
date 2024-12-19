@@ -4,14 +4,19 @@ Prob: Creating-Strings
 Lang: c++
 */
 
-// Solving using next permuatation
-
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 
-signed main(){
-	
+
+/* 
+------------------------------------------------------------------------
+	The following can also be done using next permutation
+------------------------------------------------------------------------
+
+
+code: 
+
 	string s;
 	cin >> s;
 	sort(s.begin(), s.end());
@@ -26,5 +31,39 @@ signed main(){
 		cout << a << '\n';
 	}
 
+*/
+
+
+
+//Solving the same using recursion
+
+void permu(string str, string ans, vector<string>& v) {
+    if (str.empty()) {
+        v.push_back(ans); 
+        return;
+    }
+
+    for (int i = 0; i < str.size(); ++i) {
+        char a = str[i];
+        string leftPart = str.substr(0, i);
+        string rightPart = str.substr(i + 1);
+        string leftOver = leftPart + rightPart;
+        permu(leftOver, ans + a, v);  
+    }
 }
 
+int main() {
+    string s;
+    cin >> s;
+    vector<string> fAns;
+    
+    permu(s, "", fAns);  
+
+    set<string> uniquePerms(fAns.begin(), fAns.end());
+    cout << uniquePerms.size() << '\n';  
+    for (const auto& k : uniquePerms) {
+        cout << k << '\n';  
+    }
+
+    return 0;
+}
