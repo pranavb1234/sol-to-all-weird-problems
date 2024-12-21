@@ -4,6 +4,8 @@ Prob : Collecting Numbers
 Lang: C++
 */
 
+
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -16,6 +18,19 @@ signed main() {
         cin >> v[i];
     }
 
+// New Solution
+
+
+
+
+
+
+
+/*
+
+----------------------------------------------------------------------
+My solution (passed 1 test case and rest of them TLE)
+----------------------------------------------------------------------
     auto temp = v;
     ll start = 0;
     ll end = 0;
@@ -52,7 +67,18 @@ signed main() {
 
     cout << rounds << endl;
 
+    */
+
+
+
+
+
+
     
 }
+
+
+
+
 
 
