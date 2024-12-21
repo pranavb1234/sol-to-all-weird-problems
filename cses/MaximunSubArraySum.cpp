@@ -8,6 +8,8 @@ Lang: C++
 using namespace std;
 typedef long long ll;
 
+// Concept --> Kadane's Algorithm
+
 signed main() {
     ll n;
     cin >> n;
