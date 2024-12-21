@@ -1,6 +1,6 @@
 /* 
 author: Pranav
-Prob : Stick Length
+Prob : Towers
 Lang: C++
 */
 
@@ -10,6 +10,26 @@ Lang: C++
 using namespace std;
 typedef long long ll;
 
+ll noOfRounds(vector<ll> nums, ll &count){
+    if(nums.size() == 0){
+        return count;
+    }
+
+    for(ll i = 1; i < nums.size(); ++i){
+        if(nums[0] >= nums[i]){
+            nums.erase(nums.begin() + i);
+        }else{
+            continue;
+        }
+    }
+
+    auto temp = nums;
+    count++;
+
+    noOfRounds(temp, count);
+
+}
+
 signed main() {
     ll n;
     cin >> n;
@@ -17,18 +37,12 @@ signed main() {
     for (ll i = 0; i < n; i++) {
         cin >> v[i];
     }
-    ll sum = 0;
- 
-  sort(v.begin(), v.end());
-   ll mid = n / 2;
-   for(ll i = 0; i < n; ++i){
-    if(i == mid) continue;
- 
-    ll diff = abs(v[i] - v[mid]);
-    sum += diff;
-   }
- 
-   cout << sum << endl;
+
+    ll nor = 0;
+    ll cnt = noOfRounds(v, nor);
+
+    cout << cnt << endl;
+  
 
 
 }
