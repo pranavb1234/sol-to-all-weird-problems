@@ -3,7 +3,7 @@ author: Pranav
 Prob: Apple-Division
 Lang: c++
 */
-
+// not done
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
